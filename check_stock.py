@@ -24,10 +24,10 @@ PRODUCT_URL = os.environ.get(
     "PRODUCT_URL",
     "https://shop.amul.com/en/product/amul-chocolate-whey-protein-34-g-or-pack-of-60-sachets",
 )
-PINCODE = os.environ.get("PINCODE", "560016")
+PINCODE = os.environ.get("PINCODE", "401107")
 
-GMAIL_USER = os.environ.get["GMAIL_USER","dhanushspjimr@gmail.com"]               # sender Gmail address
-GMAIL_APP_PASSWORD = os.environ.get["GMAIL_APP_PASSWORD","frtwsjlllwkjcuak"]  # 16-char Gmail App Password
+GMAIL_USER = os.environ["GMAIL_USER"]               # sender Gmail address
+GMAIL_APP_PASSWORD = os.environ["GMAIL_APP_PASSWORD"]  # 16-char Gmail App Password
 TO_EMAIL = os.environ.get("TO_EMAIL", GMAIL_USER)    # recipient (defaults to sender)
 
 DEBUG = os.environ.get("DEBUG", "false").lower() == "true"

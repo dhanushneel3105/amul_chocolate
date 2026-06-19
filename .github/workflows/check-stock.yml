@@ -25,8 +25,8 @@ jobs:
 
       - name: Run stock check
         env:
-          PRODUCT_URL: "https://shop.amul.com/en/product/amul-whey-protein-32-g-or-pack-of-60-sachets"
-          PINCODE: "560016"
+          PRODUCT_URL: "https://shop.amul.com/en/product/amul-chocolate-whey-protein-34-g-or-pack-of-60-sachets"
+          PINCODE: "401107"
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
