@@ -1,0 +1,45 @@
+name: Check Amul Stock
+
+on:
+  schedule:
+    # Runs at minute 0 of every 4th hour (UTC). GitHub Actions uses UTC.
+    - cron: "0 */4 * * *"
+  workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
+
+jobs:
+  check-stock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
+
+      - name: Run stock check
+        env:
+          PRODUCT_URL: "https://shop.amul.com/en/product/amul-whey-protein-32-g-or-pack-of-60-sachets"
+          PINCODE: "560016"
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          DEBUG: "true"
+        run: python check_stock.py
+
+      - name: Upload debug screenshot (only if something went wrong)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-output
+          path: |
+            debug_*.png
+            debug_*.html
+          if-no-files-found: ignore
+          retention-days: 3
