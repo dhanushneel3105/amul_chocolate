@@ -28,7 +28,7 @@ PINCODE = os.environ.get("PINCODE", "560016")
 
 GMAIL_USER = os.environ.get["GMAIL_USER","dhanushspjimr@gmail.com"]               # sender Gmail address
 GMAIL_APP_PASSWORD = os.environ.get["GMAIL_APP_PASSWORD","frtwsjlllwkjcuak"]  # 16-char Gmail App Password
-TO_EMAIL = os.environ.get("TO_EMAIL", "dneel31051998@gmail.com")    # recipient (defaults to sender)
+TO_EMAIL = os.environ.get("TO_EMAIL", "GMAIL_USER")    # recipient (defaults to sender)
 
 DEBUG = os.environ.get("DEBUG", "false").lower() == "true"
 
